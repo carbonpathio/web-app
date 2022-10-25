@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+  pull_request:
+
 
 jobs:
   api:
@@ -21,7 +23,7 @@ jobs:
       POSTGRES_DB: carbonpath
       POSTGRES_USER: carbonpath
       POSTGRES_PASSWORD: carbonpath
-      DATABASE_URL: postgres://carbonpath:carbonpath@postgres/carbonpath
+      DATABASE_URL: postgres://carbonpath:carbonpath@localhost:5432/carbonpath
       DJANGO_ALLOWED_HOSTS: localhost
       DJANGO_CORS_ORIGIN_REGEX_WHITELIST: http://localhost:3000
       DJANGO_CSRF_TRUSTED_ORIGINS: http://localhost:3000
