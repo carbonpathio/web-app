@@ -41,7 +41,7 @@ jobs:
           
       - name: Install Poetry
         run: |
-          pip install poetry
+          pip install poetry==1.1.*
       - name: Install API dependencies
         run: |
           cd api
