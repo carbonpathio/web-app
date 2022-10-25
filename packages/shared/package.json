@@ -1,0 +1,19 @@
+{
+  "name": "@carbonpath/shared",
+  "version": "0.1.0",
+  "private": true,
+  "main": "lib/index.ts",
+  "scripts": {
+    "build": "dotenv -e ../../.env -- tsc",
+    "build:watch": "dotenv -e ../../.env -- tsc --watch --preserveWatchOutput",
+    "start": "dotenv -e ../../.env -- yarn build:watch"
+  },
+  "dependencies": {
+    "fetch-dedupe": "^3.0.0",
+    "mobx": "^6.6.0",
+    "mobx-keystone": "^0.69.1"
+  },
+  "devDependencies": {
+    "eslint-config-carbonpath": "0.1.0"
+  }
+}

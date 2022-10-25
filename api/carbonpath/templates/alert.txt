@@ -1,0 +1,5 @@
+Hello {{ email }}
+A new well ({{ well_name }}) has been added to the app.
+
+Regards,
+CarbonPath

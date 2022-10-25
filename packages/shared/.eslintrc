@@ -1,0 +1,6 @@
+{
+  "extends": "eslint-config-carbonpath",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}

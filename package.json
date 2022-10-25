@@ -1,0 +1,59 @@
+{
+  "name": "carbonpath",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "commit": "git-cz",
+    "start": "lerna run start",
+    "build": "lerna run build",
+    "build:shared": "yarn workspace @carbonpath/shared build",
+    "lint": "lerna run --stream lint",
+    "ci:lint": "lerna run --stream ci:lint",
+    "audit:fix": "yarn-audit-fix",
+    "web": "(yarn workspace @carbonpath/shared build) && (concurrently --kill-others-on-fail -n web,shared \"yarn workspace @carbonpath/web dev\" \"yarn workspace @carbonpath/shared build:watch\")",
+    "prepare": "husky install"
+  },
+  "engines": {
+    "node": "^16.13"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^3.0.0",
+    "date-fns": "^2.29.3",
+    "email-validator": "^2.0.4",
+    "file-saver": "^2.0.5",
+    "localforage": "^1.10.0",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "tw-elements": "^1.0.0-alpha12"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@types/node": "^18.0.0",
+    "@types/react": "18.0.12",
+    "@types/react-dom": "18.0.5",
+    "autoprefixer": "^10.4.7",
+    "commitizen": "^4.2.4",
+    "concurrently": "^7.2.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "dotenv-cli": "^5.1.0",
+    "eslint": "8.17.0",
+    "husky": "^8.0.1",
+    "lerna": "^5.0.0",
+    "lint-staged": "^12.4.1",
+    "postcss": "^8.4.14",
+    "prettier": "^2.6.2",
+    "tailwindcss": "^3.0.24",
+    "typescript": "4.7.3",
+    "yarn-audit-fix": "^9.3.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+name: Quality Checks
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:12-alpine
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: carbonpath
+          POSTGRES_USER: carbonpath
+          POSTGRES_PASSWORD: carbonpath
+    env:
+      POSTGRES_DB: carbonpath
+      POSTGRES_USER: carbonpath
+      POSTGRES_PASSWORD: carbonpath
+      DATABASE_URL: postgres://carbonpath:carbonpath@postgres/carbonpath
+      DJANGO_ALLOWED_HOSTS: localhost
+      DJANGO_CORS_ORIGIN_REGEX_WHITELIST: http://localhost:3000
+      DJANGO_CSRF_TRUSTED_ORIGINS: http://localhost:3000
+      DJANGO_SECRET_KEY: secretkey
+      DJANGO_SETTINGS_MODULE: config.test
+    steps:
+      - uses: actions/checkout@v3
+      - run: set -e
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Get number of CPU cores
+        uses: SimenB/github-actions-cpu-cores@v1
+        id: cpu-cores
+          
+      - name: Install Poetry
+        run: |
+          pip install poetry
+      - name: Install API dependencies
+        run: |
+          cd api
+          python -m venv .venv
+          poetry install --no-root
+      - name: Run tests
+        run: |
+          cd api
+          poetry run safety check -i 44610 -i 50473 -i 51159
+
+          cd carbonpath
+          poetry run python manage.py makemigrations --dry-run --check
+          poetry run pytest -n ${{ steps.cpu-cores.outputs.count }} --cov=. --cov-report=xml --junitxml=junit/test-results.xml
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          files: api/carbonpath/junit/test-results.xml
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.13'
+          cache: 'yarn'
+      - run: set -e
+      - name: Install modules
+        run: yarn
+      - name: Audit
+        run: yarn audit:fix --audit-level high --dry-run
+      - name: Run ESLint
+        run: yarn ci:lint

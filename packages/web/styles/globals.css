@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "slick-carousel/slick/slick.css"; 
+@import "slick-carousel/slick/slick-theme.css";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.accordion-button {
+  position: relative;
+}
+
+.accordion-button-summary{
+  box-shadow: none !important;
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
+}
+
+.accordion-button-faq:not(.collapsed) {
+  color: white !important;
+  background-color: #385877 !important;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.accordion-button-split:not(.collapsed) {
+  color: rgb(24 43 81) !important;
+  background-color: #ECEFFA !important;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-color: #182B51;
+}
+
+.accordion-button-faq:not(.collapsed)::after {
+  position: absolute;
+  right: 1rem;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'/%3e%3c/svg%3e");
+}
+
+.accordion-button-split:not(.collapsed)::after {
+  position: absolute;
+  right: 1rem;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23182B51'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'/%3e%3c/svg%3e");
+}
+
+.accordion-button-faq::after , .accordion-button-split::after{
+  position: absolute;
+  right: 1rem;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23182B51'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'/%3e%3c/svg%3e");
+
+}
+
+@media (max-width: 530px) {
+  .accordion-button-faq:not(.collapsed)::after{
+    margin-left: 1rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'/%3e%3c/svg%3e");
+
+  }
+  .accordion-button-split:not(.collapsed)::after{
+    margin-left: 1rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23182B51'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'/%3e%3c/svg%3e");
+
+  }
+  
+  .accordion-button-faq::after , .accordion-button-split::after{
+    margin-left: 1rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23182B51'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'/%3e%3c/svg%3e");
+
+  }
+}
+
+.accordion-button::after {
+  margin-right: 50px;
+}
+
+.accordion-foryou .accordion-button::after {
+  margin-right: 16px !important;
+}
+
+.accordion-mp .accordion-button::after {
+  margin-right: 10px !important;
+}
+
+.rodal-dialog.rodal-slideUp-enter {
+  margin-bottom: 0 !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-top-left-radius: 16px !important;
+  border-top-right-radius: 16px !important;
+}
+
+.rodal-dialog.rodal-slideUp-leave {
+  margin-bottom: 0 !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-top-left-radius: 16px !important;
+  border-top-right-radius: 16px !important;
+}
+
+.rodal-dialog.rodal-fade-enter {
+  background-color: transparent;
+}
+
+.rodal-dialog.rodal-fade-leave {
+  background-color: transparent;
+}
+
+
+ .mapboxgl-popup-content {
+  background: transparent !important;
+  padding: 0 !important;
+  color: transparent !important;
+
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  border-top-color: transparent !important;
+}
+
+.ReactModal__Overlay {
+  z-index: 9999 !important;
+}
+
+.border-underline {
+  border-bottom-width: 0;
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .2s ease-in-out;
+}
+
+.border-underline-bluestroke {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#182B51, #182B51);
+}
+
+.border-underline-white {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#FFFFFF, #FFFFFF);
+}
+
+.border-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#05DEC9, #05DEC9);
+}
+
+.prod-button:hover {
+  background-color: #1C3568;
+  color: white;
+}
+
+.prod-button:hover .prod-launch{
+  display: none;
+}
+
+.prod-button:hover .prod-soon{
+  display: block;
+}
+
+.react-tooltip{
+  border-radius: 12px !important;
+  opacity: 1 !important;
+  text-align: left !important;
+  padding: 6px 24px !important;
+}
+
+.slick-dots li{
+  margin: 0 0 !important;
+}
+
+.slick-dots li button {
+  padding: 0 !important;
+}
+
+.alert-spinner {
+  background: conic-gradient(from 90deg at 50% 50%, #ffffff, #e7faf6, #cef4ed, #b4efe4, #99e9db, #7ae3d2, #55dcca, #08d6c1);
+  border-radius: 50%;
+}
+
+.alert-spinner > div {
+  background: white;
+  border-radius: 50%;
+  position: relative;
+}
+
+.alert-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #9EA1AE;
+  border: 1px solid white;
+  border-radius: 100vw;
+}
+
+.alert-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.alert-scrollbar::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.mobile-nav-shadow {
+  box-shadow: 0px 4px 14px rgba(96, 86, 86, 0.1)
+}
